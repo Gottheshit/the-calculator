@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🔍 SEO Meta Tags -->
+  <title>Best Online Scientific Calculator | Free & Smart by AK</title>
+  <meta name="description" content="Use the smartest and most beautiful online calculator designed by AK. Fast, keyboard-friendly, mobile responsive, and built with JavaScript, HTML, and CSS." />
+  <meta name="keywords" content="online calculator, free calculator, scientific calculator, calculator HTML, JavaScript calculator, stylish calculator, best calculator tool, AK calculator" />
+  <meta name="author" content="Abdullah Kamran (AK)" />
+
+  <!-- 👥 Open Graph for Sharing -->
+  <meta property="og:title" content="Best Online Scientific Calculator | AK's Free Tool" />
+  <meta property="og:description" content="Try the fastest, keyboard-friendly, aesthetic online calculator built by AK. Free forever!" />
+  <meta property="og:url" content="https://gottheshit.github.io/Calculator/" />
+  <meta property="og:type" content="website" />
+
+  <!-- 🖼️ Favicon -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1559/1559647.png" />
+
+  <!-- 🌈 Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --main-bg: linear-gradient(to right, #1f1f1f, #2c3e50);
+      --button-bg: #333;
+      --button-hover: #00ffe7;
+      --text-color: #fff;
+      --accent: #00ffe7;
+      --font-heading: 'Orbitron', sans-serif;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--main-bg);
+      font-family: var(--font-body);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      background: linear-gradient(to right, #00ffe7, #00ff88, #ffde59, #ff4f4f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-top: 0.3rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .calculator {
+      background: #121212;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 255, 190, 0.3);
+      width: 90%;
+      max-width: 400px;
+      margin: 1rem;
+    }
+
+    #display {
+      width: 100%;
+      height: 3rem;
+      font-size: 1.5rem;
+      padding: 0.5rem 0.8rem;
+      margin-bottom: 1.2rem;
+      border-radius: 0.5rem;
+      border: none;
+      background: #222;
+      color: var(--accent);
+      text-align: right;
+      font-family: var(--font-heading);
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+    }
+
+    .buttons button {
+      padding: 0.8rem 0;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: var(--button-bg);
+      color: var(--text-color);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      background: var(--button-hover);
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .buttons button:active {
+      transform: scale(0.97);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+    }
+
+    /* ✅ Responsive Tweaks */
+    @media (max-width: 500px) {
+      .calculator {
+        padding: 1.5rem;
+      }
+
+      .buttons button {
+        padding: 0.6rem 0;
+        font-size: 1rem;
+      }
+
+      #display {
+        height: 2.8rem;
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Calculator Program by AK</h1>
+    <p>Fast. Free. Functional. Futuristic.</p>
+  </header>
+
+  <div class="calculator">
+    <input type="text" id="display" disabled />
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="append('/')">÷</button>
+      <button onclick="append('*')">×</button>
+      <button onclick="append('-')">−</button>
+
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('+')">+</button>
+
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="calculate()">=</button>
+
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('.')">.</button>
+
+      <button onclick="append('0')" style="grid-column: span 2;">0</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Abdullah Kamran. All rights reserved.
+  </footer>
+
+  <script>
+    const display = document.getElementById('display');
+
+    function append(value) {
+      display.value += value;
+    }
+
+    function clearDisplay() {
+      display.value = '';
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = 'Error';
+      }
+    }
+
+    // ✅ Keyboard Control
+    document.addEventListener('keydown', (e) => {
+      const key = e.key;
+      if ('0123456789.+-*/'.includes(key)) {
+        append(key);
+      } else if (key === 'Enter') {
+        calculate();
+      } else if (key === 'Backspace') {
+        display.value = display.value.slice(0, -1);
+      } else if (key === 'Escape') {
+        clearDisplay();
+      }
+    });
+  </script>
+
+</body>
+</html>
